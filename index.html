@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WATSON YTMP3 Downloader</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    input {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #00ffcc;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ccaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WATSON YTMP3 Downloader</h1>
+  <p>Paste a YouTube video link to download as MP3:</p>
+
+  <input type="text" id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=..." />
+  <br/>
+  <button onclick="downloadMP3()">Download MP3</button>
+
+  <script>
+    function downloadMP3() {
+      const url = document.getElementById('youtubeUrl').value.trim();
+      if (!url) {
+        alert("Please enter a YouTube URL!");
+        return;
+      }
+      const downloadUrl = `https://watson-ytmp3-api.onrender.com/api/ytmp3?url=${encodeURIComponent(url)}`;
+      window.open(downloadUrl, '_blank');
+    }
+  </script>
+
+</body>
+</html>
